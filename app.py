@@ -24,9 +24,10 @@ HTML = """
             justify-content:center;
             align-items:center;
             overflow:hidden;
-            background:linear-gradient(-45deg,#0f172a,#1e3a8a,#312e81,#0f172a);
+            /* Nuevo fondo: Gradiente de atardecer neón */
+            background:linear-gradient(-45deg, #0b0914, #2b1055, #75205d, #b93c52);
             background-size:400% 400%;
-            animation:gradient 15s ease infinite;
+            animation:gradient 12s ease infinite;
         }
 
         @keyframes gradient{
@@ -36,95 +37,109 @@ HTML = """
         }
 
         .card{
-            background:rgba(255,255,255,0.08);
-            backdrop-filter:blur(15px);
-            -webkit-backdrop-filter:blur(15px);
-            border:1px solid rgba(255,255,255,0.2);
-            border-radius:25px;
+            /* Tarjeta de cristal más oscura con bordes rosados */
+            background:rgba(0, 0, 0, 0.4);
+            backdrop-filter:blur(20px);
+            -webkit-backdrop-filter:blur(20px);
+            border:1px solid rgba(255, 107, 152, 0.3);
+            border-radius:30px;
             padding:50px;
             text-align:center;
-            box-shadow:0 8px 32px rgba(0,0,0,0.3);
+            box-shadow:0 15px 35px rgba(0,0,0,0.5), 0 0 20px rgba(255, 107, 152, 0.1);
             width:90%;
             max-width:700px;
+            z-index: 10;
         }
 
         h1{
-            color:white;
-            font-size:2.5rem;
+            color:#f8f8f8;
+            font-size:2.2rem;
             margin-bottom:20px;
-            letter-spacing:2px;
+            letter-spacing:4px;
+            text-transform: uppercase;
         }
 
         .clock{
-            color:#00e5ff;
-            font-size:5rem;
-            font-weight:bold;
-            text-shadow:0 0 20px rgba(0,229,255,0.7);
+            /* Efecto Neón naranja/rosado para los números */
+            color:#ff9a9e;
+            font-size:5.5rem;
+            font-weight:900;
+            text-shadow: 0 0 10px rgba(255, 154, 158, 0.8), 0 0 30px rgba(233, 64, 87, 0.6);
             margin:20px 0;
+            letter-spacing: 2px;
         }
 
         .date{
-            color:white;
-            font-size:1.6rem;
+            color:#fca5a5;
+            font-size:1.5rem;
             margin-top:10px;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .subtitle{
             color:#cbd5e1;
-            margin-top:20px;
-            font-size:1.1rem;
+            margin-top:30px;
+            font-size:1rem;
+            opacity: 0.7;
         }
 
+        /* Cambiamos los círculos por formas flotantes con brillo */
         .circle{
             position:absolute;
-            border-radius:50%;
-            background:rgba(255,255,255,0.08);
-            animation:float 10s infinite ease-in-out;
+            background:linear-gradient(135deg, rgba(255,107,152,0.15), rgba(255,160,122,0.05));
+            border: 1px solid rgba(255, 107, 152, 0.2);
+            animation:float 12s infinite ease-in-out;
+            border-radius: 15px; /* Bordes redondeados pero no círculos perfectos */
+            transform: rotate(45deg);
         }
 
         .circle:nth-child(1){
-            width:200px;
-            height:200px;
-            top:10%;
-            left:10%;
+            width:250px;
+            height:250px;
+            top:5%;
+            left:5%;
         }
 
         .circle:nth-child(2){
-            width:300px;
-            height:300px;
-            bottom:5%;
-            right:5%;
-            animation-duration:15s;
+            width:180px;
+            height:180px;
+            bottom:10%;
+            right:10%;
+            animation-duration:16s;
+            animation-delay: -2s;
+            border-radius: 50%; /* Este se queda como círculo para contrastar */
         }
 
         .circle:nth-child(3){
-            width:150px;
-            height:150px;
-            top:70%;
-            left:20%;
-            animation-duration:12s;
+            width:120px;
+            height:120px;
+            top:60%;
+            left:15%;
+            animation-duration:14s;
+            animation-delay: -5s;
         }
 
         @keyframes float{
             0%,100%{
-                transform:translateY(0px);
+                transform:translateY(0px) rotate(45deg);
             }
             50%{
-                transform:translateY(-30px);
+                transform:translateY(-40px) rotate(60deg);
             }
         }
 
         @media(max-width:768px){
             .clock{
-                font-size:3rem;
+                font-size:3.5rem;
             }
 
             .date{
-                font-size:1.2rem;
+                font-size:1.1rem;
             }
 
             h1{
-                font-size:2rem;
+                font-size:1.8rem;
             }
         }
     </style>
