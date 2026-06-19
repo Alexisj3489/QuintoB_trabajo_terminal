@@ -15,18 +15,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    
     - name: Set up Python 3.11
       uses: actions/setup-python@v3
       with:
         python-version: "3.11"
+        
     - name: Install dependencies
       run: pip install -r requirements.txt
     
     - name: Costruir imagen de docker
       run: docker build -t ghcr.io/byronmoreno/landingquintob:1.0.0 .
     
+    # AQUÍ ESTÁ EL CAMBIO: Se usa GITHUB_TOKEN en lugar de GHCR_PATH
     - name: Login en GitHub Container Registry
-      run: echo "${{ secrets.GHCR_PATH }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
     
     - name: Publicar la imagen creada
       run: docker push ghcr.io/byronmoreno/landingquintob:1.0.0
@@ -49,4 +52,3 @@ jobs:
         script: |
           echo "conexion ssh exitosa"
           touch ejemplo.txt
-
